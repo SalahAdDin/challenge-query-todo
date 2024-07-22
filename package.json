@@ -31,7 +31,7 @@
     "format:lint": "pnpm prettier:fix && pnpm lint:fix",
     "lint-staged": "lint-staged",
     "type-check": "tsc",
-    "prepare": "husky install",
+    "prepare": "husky",
     "commit": "commitlint",
     "release": "semantic-release --dry-run --no-ci"
   },
