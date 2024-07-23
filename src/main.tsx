@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-// import router from "@presentation/router";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import "./index.css";
@@ -22,12 +21,6 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <App />
-      {/* <RouterProvider router={router} />
-              <RouterDevtools
-                initialIsOpen={false}
-                router={router}
-                position="bottom-right"
-              /> */}
       <QueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   </React.StrictMode>
