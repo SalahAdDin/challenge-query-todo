@@ -2,16 +2,11 @@ import { useMemo } from "react";
 
 import { Todo } from "@domain/todo.model";
 
-type TodoCardProps = Todo & {
+type TodoCardProps = Omit<Todo, "isComplete"> & {
   onCheck: () => void;
 };
 
-const TodoCard = ({
-  description,
-  isComplete,
-  dueDate,
-  onCheck,
-}: TodoCardProps) => {
+const TodoCard = ({ description, status, dueDate, onCheck }: TodoCardProps) => {
   const [
     border,
     darkBorder,
@@ -19,44 +14,42 @@ const TodoCard = ({
     darkBackgroundColor,
     hoverColor,
     textColor,
-  ] = useMemo(() => {
-    const now = new Date();
-
-    if (isComplete)
-      return [
-        "border-green-200",
-        "border-green-700",
-        "bg-green-100",
-        "bg-green-800",
-        "hover:bg-green-200",
-        "text-green-700",
-      ];
-    if (now > dueDate)
-      return [
-        "border-red-200",
-        "border-red-700",
-        "bg-red-100",
-        "bg-red-800",
-        "hover:bg-red-200",
-        "text-red-700",
-      ];
-
-    return [
-      "border-gray-200",
-      "border-gray-700",
-      "bg-gray-100",
-      "bg-gray-800",
-      "hover:bg-gray-200",
-      "text-gray-700",
-    ];
-  }, [dueDate, isComplete]);
+  ] = useMemo(
+    () => ({
+        completed: [
+          "border-green-200",
+          "border-green-700",
+          "bg-green-100",
+          "bg-green-800",
+          "hover:bg-green-200",
+          "text-green-700",
+        ],
+        overdue: [
+          "border-red-200",
+          "border-red-700",
+          "bg-red-100",
+          "bg-red-800",
+          "hover:bg-red-200",
+          "text-red-700",
+        ],
+        going: [
+          "border-gray-200",
+          "border-gray-700",
+          "bg-gray-100",
+          "bg-gray-800",
+          "hover:bg-gray-200",
+          "text-gray-700",
+        ],
+      })[status],
+    [status]
+  );
 
   return (
     <div
-      className={`block rounded-lg border ${border} px-6 py-3 shadow ${hoverColor} dark:${darkBorder} dark:${darkBackgroundColor} dark:hover:${darkBorder} ${backgroundColor} ${isComplete ? "line-through" : ""} ${textColor}`}>
+      className={`block rounded-lg border ${border} px-6 py-3 shadow ${hoverColor} dark:${darkBorder} dark:${darkBackgroundColor} dark:hover:${darkBorder} ${backgroundColor} ${status === "completed" ? "line-through" : ""} ${textColor}`}>
       <input
         type="checkbox"
-        checked={isComplete}
+        checked={status === "completed"}
         onChange={onCheck}
         className={`rounded ${textColor} border ${border}`}
       />

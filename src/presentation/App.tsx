@@ -3,6 +3,7 @@
 import { Suspense } from "react";
 
 import useTodos from "@application/hooks/updateTodo";
+import todoUtils from "@application/utils/todo.utils";
 
 import ErrorBox from "./components/ErrorBox/ErrorBox";
 import Spinner from "./components/Spinner/Spinner";
@@ -15,11 +16,13 @@ const App = () => {
   if (error) return <ErrorBox message={error.message} />;
 
   const sortedTodos = [...(todos ?? [])].sort((a, b) => {
-    if (a.isComplete && !b.isComplete) return 1;
-    if (!a.isComplete && b.isComplete) return -1;
-    if (a.dueDate && b.dueDate)
-      return new Date(a.dueDate) > new Date(b.dueDate) ? 1 : -1;
-    return 0;
+    if (todoUtils.statusOrder[a.status] !== todoUtils.statusOrder[b.status]) {
+      return todoUtils.compareByStatus(a, b);
+    }
+    const firstDate = b.dueDate ?? new Date(1000, 0, 1);
+    const secondDate = a.dueDate ?? new Date(1000, 0, 1);
+
+    return firstDate.getTime() - secondDate.getTime();
   });
 
   return (
@@ -32,21 +35,23 @@ const App = () => {
         }>
         <h1 className="mb-4 text-2xl font-bold">Todo List</h1>
         <ul className="grid gap-2">
-          {sortedTodos?.map(({ id, description, isComplete, dueDate }) => (
-            <li key={id}>
-              <TodoCard
-                id={id}
-                description={description}
-                isComplete={isComplete}
-                dueDate={dueDate}
-                onCheck={() => mutation.mutate({
-                    id,
-                    update: { isComplete: !isComplete },
-                  })
-                }
-              />
-            </li>
-          ))}
+          {sortedTodos?.map(
+            ({ id, description, status, dueDate, isComplete }) => (
+              <li key={id}>
+                <TodoCard
+                  id={id}
+                  description={description}
+                  status={status}
+                  dueDate={dueDate}
+                  onCheck={() => mutation.mutate({
+                      id,
+                      update: { isComplete: !isComplete },
+                    })
+                  }
+                />
+              </li>
+            )
+          )}
         </ul>
       </Suspense>
     </div>

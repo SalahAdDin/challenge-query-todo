@@ -1,12 +1,15 @@
+type TodoStatus = "completed" | "going" | "overdue";
+
 type Todo = {
   id: number;
   description: string;
+  status: TodoStatus;
+  dueDate: Date | null;
   isComplete: boolean;
-  dueDate: Date;
 };
 
-type BETodo = Omit<Todo, "dueDate"> & {
-  dueDate: string;
+type BETodo = Omit<Todo, "dueDate" | "status"> & {
+  dueDate: string | null;
 };
 
-export type { BETodo, Todo };
+export type { BETodo, Todo, TodoStatus };
