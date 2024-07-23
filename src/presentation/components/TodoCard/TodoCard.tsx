@@ -54,7 +54,12 @@ const TodoCard = ({
   return (
     <div
       className={`block rounded-lg border ${border} px-6 py-3 shadow ${hoverColor} dark:${darkBorder} dark:${darkBackgroundColor} dark:hover:${darkBorder} ${backgroundColor} ${isComplete ? "line-through" : ""} ${textColor}`}>
-      <input type="checkbox" checked={isComplete} onChange={onCheck} />
+      <input
+        type="checkbox"
+        checked={isComplete}
+        onChange={onCheck}
+        className={`rounded ${textColor} border ${border}`}
+      />
       <span className="ml-2">{description}</span>
       {dueDate && (
         <span className="ml-2 text-sm text-gray-500">
