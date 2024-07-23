@@ -62,7 +62,8 @@ const TodoCard = ({
       />
       <span className="ml-2">{description}</span>
       {dueDate && (
-        <span className="ml-2 text-sm text-gray-500">
+        <span
+          className={`ml-2 border text-sm text-gray-700 ${border} float-end rounded px-2 py-1`}>
           {new Date(dueDate).toLocaleDateString()}
         </span>
       )}
