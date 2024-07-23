@@ -6,6 +6,7 @@ import useTodos from "@application/hooks/updateTodo";
 
 import ErrorBox from "./components/ErrorBox/ErrorBox";
 import Spinner from "./components/Spinner/Spinner";
+import TodoCard from "./components/TodoCard/TodoCard";
 
 const App = () => {
   const { data: todos, error, isLoading, mutation } = useTodos();
@@ -30,26 +31,20 @@ const App = () => {
           </div>
         }>
         <h1 className="mb-4 text-2xl font-bold">Todo List</h1>
-        <ul>
-          {sortedTodos?.map((todo) => (
-            <li
-              key={todo.id}
-              className={`border-b p-2 ${todo.isComplete ? "line-through" : ""} ${new Date(todo.dueDate) < new Date() && !todo.isComplete ? "text-red-500" : ""}`}>
-              <input
-                type="checkbox"
-                checked={todo.isComplete}
-                onChange={() => mutation.mutate({
-                    id: todo.id,
-                    update: { isComplete: true },
+        <ul className="grid gap-2">
+          {sortedTodos?.map(({ id, description, isComplete, dueDate }) => (
+            <li key={id}>
+              <TodoCard
+                id={id}
+                description={description}
+                isComplete={isComplete}
+                dueDate={dueDate}
+                onCheck={() => mutation.mutate({
+                    id,
+                    update: { isComplete: !isComplete },
                   })
                 }
               />
-              <span className="ml-2">{todo.description}</span>
-              {todo.dueDate && (
-                <span className="ml-2 text-sm text-gray-500">
-                  due: {new Date(todo.dueDate).toLocaleDateString()}
-                </span>
-              )}
             </li>
           ))}
         </ul>
