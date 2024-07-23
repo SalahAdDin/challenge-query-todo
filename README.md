@@ -51,7 +51,7 @@ cd your-project-name
 pnpm install
 ```
 
-Go to the `.env` file and add the API URL and KEY to have access to the API service.
+Run the mock server: `pnpm run:server`
 
 Finally, run the project: `pnpm dev`
 
