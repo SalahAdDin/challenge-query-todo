@@ -1,10 +1,11 @@
+import { Todo } from "@domain/todo.model";
 import service from "@infrastructure/api/service";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 const useTodos = () => {
   const queryClient = useQueryClient();
 
-  const { data, error, isLoading } = useQuery({
+  const { data, error, isLoading } = useQuery<Array<Todo>, Error>({
     queryKey: ["todos"],
     queryFn: service.fetchTodos,
   });

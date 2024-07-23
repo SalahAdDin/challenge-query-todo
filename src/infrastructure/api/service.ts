@@ -10,7 +10,7 @@ const fetchTodos = async (): Promise<Array<Todo>> => {
   return data.map((todo) => Adapter.adaptTodo(todo));
 };
 
-type UpdateTodoProps = { id: string; update: Date };
+type UpdateTodoProps = { id: number; update: Partial<Omit<Todo, "id">> };
 
 const updateTodo = async ({ id, update }: UpdateTodoProps) => {
   await client.patch(`${endpoint.patch}/${id}`, update);
