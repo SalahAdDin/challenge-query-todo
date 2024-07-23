@@ -37,7 +37,7 @@
     "tests",
     "commitlint.config.cts",
     "playwright.config.ts",
-    "vite.config.ts"
+    "vite.config.mts"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
