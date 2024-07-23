@@ -41,7 +41,7 @@ It is an intended architecture, it can be used either globally or per applicatio
 Clone the project and give it a name:
 
 ```Bash
-git clone git@github.com:SalahAdDin/react-ts-vite-template.git your-project-name
+git clone git@github.com:SalahAdDin/challenge-query-todo your-project-name
 ```
 
 Then, to start the project:
@@ -49,8 +49,11 @@ Then, to start the project:
 ```Bash
 cd your-project-name
 pnpm install
-pnpm dev
 ```
+
+Go to the `.env` file and add the API URL and KEY to have access to the API service.
+
+Finally, run the project: `pnpm dev`
 
 ## Git Flow
 
