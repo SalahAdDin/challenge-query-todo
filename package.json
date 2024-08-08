@@ -19,6 +19,7 @@
     "test:watch": "vitest --watch",
     "test:coverage": "vitest --watch --coverage --ui",
     "test:ui": "vitest --watch --ui",
+    "test:ui:coverage": "vitest --watch --ui --coverage",
     "test:preview": "vitest-preview",
     "test:e2e": "playwright test --trace on --pass-with-no-tests",
     "test:e2e:watch": "playwright test --ui",
@@ -105,9 +106,6 @@
     "vitest-dom": "0.1.1",
     "vitest-preview": "0.0.1",
     "web-vitals": "4.2.3"
-  },
-  "msw": {
-    "workerDirectory": "public"
   },
   "keywords": ["react", "boilerplate", "vite", "bundle", "typescript"],
   "packageManager": "pnpm@9.6.0"
