@@ -2,7 +2,7 @@ import { useMemo } from "react";
 
 import { Todo } from "@domain/todo.model";
 
-type TodoCardProps = Omit<Todo, "isComplete"> & {
+type TodoCardProps = Omit<Todo, "isComplete" | "id"> & {
   onCheck: () => void;
 };
 
@@ -64,4 +64,5 @@ const TodoCard = ({ description, status, dueDate, onCheck }: TodoCardProps) => {
   );
 };
 
+export type { TodoCardProps };
 export default TodoCard;

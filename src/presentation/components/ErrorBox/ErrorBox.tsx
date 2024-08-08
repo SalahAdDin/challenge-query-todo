@@ -6,6 +6,7 @@ const ErrorBox: FC<{ message: string }> = ({ message }) => (
     role="alert">
     <svg
       xmlns="http://www.w3.org/2000/svg"
+      role="img"
       fill="none"
       viewBox="0 0 24 24"
       height={100}
