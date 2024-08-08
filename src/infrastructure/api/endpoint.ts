@@ -1,6 +1,6 @@
 const endpoint = {
-  get: "", // "/get",
-  patch: "", // "/patch",
+  get: "",
+  patch: "",
 };
 
 export default endpoint;
