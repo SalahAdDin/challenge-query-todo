@@ -2,6 +2,27 @@
 
 This is a template based on experiences from assessments and personal projects and [this wonderful project](https://github.com/eruptionjs/core), which gave me a lot of new information on tools we never used before. Thanks [@Diago Fonseca](https://github.com/devMozao)!!!
 
+## Installation
+
+Clone the project and give it a name:
+
+```Bash
+git clone git@github.com:SalahAdDin/challenge-query-todo your-project-name
+```
+
+Then, to start the project:
+
+```Bash
+cd your-project-name
+pnpm install
+```
+
+Run the mock server: `pnpm run:server`
+
+Finally, run the project: `pnpm dev`
+
+## Technologies
+
 It is build on:
 
 - [**Typescript**](https://www.typescriptlang.org/), of course, who does not like Typescript?
@@ -35,25 +56,6 @@ It tries to follow the Clean Architecture(getting some of inspiration from [Alan
 - **presentation:** Contains all screens and components intended to render our data.
 
 It is an intended architecture, it can be used either globally or per application's feature.
-
-## Installation
-
-Clone the project and give it a name:
-
-```Bash
-git clone git@github.com:SalahAdDin/challenge-query-todo your-project-name
-```
-
-Then, to start the project:
-
-```Bash
-cd your-project-name
-pnpm install
-```
-
-Run the mock server: `pnpm run:server`
-
-Finally, run the project: `pnpm dev`
 
 ## Git Flow
 
