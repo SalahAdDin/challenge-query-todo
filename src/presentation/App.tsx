@@ -24,34 +24,38 @@ const App = () => {
   });
 
   return (
-    <div className="container my-8 max-w-screen-lg">
+    <main>
       <Suspense
         fallback={
           <div className="flex h-[75vh] w-full flex-col items-center justify-center">
             <Spinner />
           </div>
         }>
-        <h1 className="mb-4 text-2xl font-bold">Todo List</h1>
-        <ul className="grid gap-2">
-          {sortedTodos?.map(
-            ({ id, description, status, dueDate, isComplete }) => (
-              <li key={id}>
-                <TodoCard
-                  description={description}
-                  status={status}
-                  dueDate={dueDate}
-                  onCheck={() => mutation.mutate({
-                      id,
-                      update: { isComplete: !isComplete },
-                    })
-                  }
-                />
-              </li>
-            )
-          )}
-        </ul>
+        <h1 className="mb-4 border border-black bg-customBackground-dark px-5 py-[1.125rem] text-2xl text-lg font-bold text-white">
+          Todo App
+        </h1>
+        <section className="container max-w-screen-lg">
+          <ul className="grid gap-2">
+            {sortedTodos?.map(
+              ({ id, description, status, dueDate, isComplete }) => (
+                <li key={id}>
+                  <TodoCard
+                    description={description}
+                    status={status}
+                    dueDate={dueDate}
+                    onCheck={() => mutation.mutate({
+                        id,
+                        update: { isComplete: !isComplete },
+                      })
+                    }
+                  />
+                </li>
+              )
+            )}
+          </ul>
+        </section>
       </Suspense>
-    </div>
+    </main>
   );
 };
 
