@@ -34,7 +34,6 @@ describe("TodoCard", () => {
     } satisfies TodoCardProps;
 
     renderComponent(props);
-    screen.debug();
     const descriptionElement = screen.getByText(/Test Todo/i);
     expect(descriptionElement).toBeInTheDocument();
 
