@@ -36,7 +36,6 @@ const renderWithRouter = (ui: React.ReactElement, { route = "/" } = {}) => {
 
   return {
     user: userEvent.setup(),
-    //    ...render(ui, { wrapper: BrowserRouter }),
   };
 };
 

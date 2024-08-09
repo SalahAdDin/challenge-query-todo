@@ -60,7 +60,6 @@ describe("todoService", () => {
       const update = { title: "Updated Todo", isComplete: true };
       const todoId = 1;
 
-      // Mock the client.patch method
       const patchSpy = vi.spyOn(client, "patch").mockResolvedValue({});
 
       await service.updateTodo({ id: todoId, update });
