@@ -1,17 +1,19 @@
-import "dotenv/config";
+import path from "path";
+import { fileURLToPath } from "url";
 
+import dotenv from "dotenv";
+
+import { defineConfig, devices } from "@playwright/test";
 import type { PlaywrightTestConfig } from "@playwright/test";
-import { devices } from "@playwright/test";
 
-const host = process.env.VITE_SERVER_HOST || "localhost";
-const port = process.env.VITE_SERVER_PORT || 3000;
-const baseURL = process.env.VITE_APP_BASE_URL || "/";
+const fileName = fileURLToPath(import.meta.url);
+const dirName = path.dirname(fileName);
 
-/**
- * Read environment variables from file.
- * https://github.com/motdotla/dotenv
- */
-// require('dotenv').config();
+dotenv.config({ path: path.resolve(dirName, ".env") });
+
+const host = process.env["VITE_SERVER_HOST"] || "localhost";
+const port = process.env["VITE_SERVER_PORT"] || 3000;
+const baseURL = process.env["VITE_APP_BASE_URL"] || "/";
 
 /**
  * See https://playwright.dev/docs/test-configuration.
@@ -30,11 +32,11 @@ const config: PlaywrightTestConfig = {
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
-  forbidOnly: !!process.env.CI,
+  forbidOnly: !!process.env["CI"],
   /* Retry on CI only */
-  retries: process.env.CI ? 2 : 0,
+  retries: process.env["CI"] ? 2 : 0,
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : undefined,
+  workers: process.env["CI"] ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: "html",
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
@@ -113,4 +115,4 @@ const config: PlaywrightTestConfig = {
   */
 };
 
-export default config;
+export default defineConfig(config);
