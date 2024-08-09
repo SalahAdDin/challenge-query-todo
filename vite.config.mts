@@ -41,6 +41,7 @@ export default (configEnv: ConfigEnv) => {
         provider: "v8",
         reporter: ["text", "html"],
         exclude: [
+          "src/application/utils/test-utils.tsx",
           "playwright.config.ts",
           "playwright-report",
           "postcss.config.cjs",
