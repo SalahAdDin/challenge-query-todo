@@ -42,8 +42,10 @@ export default (configEnv: ConfigEnv) => {
         reporter: ["text", "html"],
         exclude: [
           "playwright.config.ts",
+          "playwright-report",
           "postcss.config.cjs",
           "tailwind.config.ts",
+          "tests",
           "vite.config.mts",
         ],
         thresholds: {
