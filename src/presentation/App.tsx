@@ -37,7 +37,6 @@ const App = () => {
             ({ id, description, status, dueDate, isComplete }) => (
               <li key={id}>
                 <TodoCard
-                  id={id}
                   description={description}
                   status={status}
                   dueDate={dueDate}
