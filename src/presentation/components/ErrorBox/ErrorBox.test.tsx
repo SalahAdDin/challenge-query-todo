@@ -5,7 +5,7 @@ import ErrorBox from "./ErrorBox";
 const DUMMY_ERROR = "Connection Error with 400 code.";
 
 describe("ErrorBox", () => {
-  it("renders the ErrorBox component with the provided message", () => {
+  it("should render the ErrorBox component when a message is provided", () => {
     const message = DUMMY_ERROR;
     render(<ErrorBox message={message} />);
 
@@ -24,14 +24,14 @@ describe("ErrorBox", () => {
     expect(errorMessage).toBeInTheDocument();
   });
 
-  it("renders the default SVG icon", () => {
+  it("should render the default SVG icon when the component is rendered", () => {
     render(<ErrorBox message="Error message" />);
 
     const svgElement = screen.getByRole("img", { hidden: true });
     expect(svgElement).toBeInTheDocument();
   });
 
-  it("renders the heading and message correctly", () => {
+  it("should render the heading and message correctly when the component is rendered", () => {
     const message = "This is an error message";
     render(<ErrorBox message={message} />);
 
