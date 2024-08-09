@@ -1,5 +1,5 @@
 import { BETodo, Todo } from "@domain/todo.model";
-import Adapter from "@infrastructure/api/adapter";
+import adapter from "@infrastructure/api/adapter";
 
 import client from "./client";
 import endpoint from "./endpoint";
@@ -7,7 +7,7 @@ import endpoint from "./endpoint";
 const fetchTodos = async (): Promise<Array<Todo>> => {
   const { data } = await client.get<Array<BETodo>>(endpoint.get);
 
-  return data.map((todo) => Adapter.adaptTodo(todo));
+  return data.map((todo) => adapter.adaptTodo(todo));
 };
 
 type UpdateTodoProps = { id: number; update: Partial<Omit<Todo, "id">> };

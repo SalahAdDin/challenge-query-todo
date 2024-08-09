@@ -57,7 +57,7 @@ const TodoCard = ({ description, status, dueDate, onCheck }: TodoCardProps) => {
       {dueDate && (
         <span
           className={`ml-2 border text-sm text-gray-700 ${border} float-end rounded px-2 py-1`}>
-          {new Date(dueDate).toLocaleDateString()}
+          {dueDate.toLocaleDateString()}
         </span>
       )}
     </div>
