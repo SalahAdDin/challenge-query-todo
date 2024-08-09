@@ -35,11 +35,17 @@ export default (configEnv: ConfigEnv) => {
       clearMocks: true,
       css: true,
       include: ["src/**/*.{test,spec}.?(c|m)[jt]s?(x)"],
-      exclude: ["src/tests"],
+      exclude: ["tests"],
       watch: false,
       coverage: {
         provider: "v8",
         reporter: ["text", "html"],
+        exclude: [
+          "playwright.config.ts",
+          "postcss.config.cjs",
+          "tailwind.config.ts",
+          "vite.config.mts",
+        ],
         thresholds: {
           branches: 90,
           functions: 95,
