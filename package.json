@@ -17,7 +17,7 @@
     "run:server": "json-server db.json",
     "test": "vitest",
     "test:watch": "vitest --watch",
-    "test:coverage": "vitest --watch --coverage --ui",
+    "test:coverage": "vitest --watch --coverage",
     "test:ui": "vitest --watch --ui",
     "test:ui:coverage": "vitest --watch --ui --coverage",
     "test:preview": "vitest-preview",
