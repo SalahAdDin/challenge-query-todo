@@ -99,6 +99,6 @@ describe("TodoCard", () => {
     expect(todoElement).toHaveClass("border-red-200");
     expect(todoElement).toHaveClass("bg-red-100");
     expect(todoElement).toHaveClass("hover:bg-red-200");
-    expect(todoElement).toHaveClass("text-red-700");
+    expect(todoElement).toHaveClass("text-black");
   });
 });
