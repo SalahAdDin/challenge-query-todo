@@ -23,6 +23,20 @@ Run the mock server: `pnpm run:server`
 
 Finally, run the project: `pnpm dev`
 
+If you have any **CORS** issue you can solve it by enabling them on the Vite configuration:
+
+```ts
+server: {
+  open: true,
+  host: process.env.VITE_SERVER_HOST,
+  port: Number(process.env.VITE_SERVER_PORT),
+  cors: {
+    origin: [`${process.env.VITE_SERVER_HOST}:${process.env.VITE_SERVER_PORT}`], // "http://localhost:5173"
+    methods: ["GET", "POST", "PUT", "DELETE"],
+  },
+},
+```
+
 ## Technologies
 
 It is build on:
