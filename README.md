@@ -10,6 +10,8 @@ Clone the project and give it a name:
 git clone git@github.com:SalahAdDin/challenge-query-todo your-project-name
 ```
 
+Check your current **Node version** to be minimum **18**, if you use [nvm](https://github.com/nvm-sh/nvm) or [fnm](https://github.com/Schniz/fnm) working on your environment, the node version should automatically be loaded from `.nvmrc`.
+
 Then, to start the project:
 
 ```Bash

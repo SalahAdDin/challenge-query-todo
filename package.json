@@ -110,5 +110,8 @@
     "web-vitals": "4.2.3"
   },
   "keywords": ["react", "boilerplate", "vite", "bundle", "typescript"],
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "packageManager": "pnpm@9.7.0"
 }
