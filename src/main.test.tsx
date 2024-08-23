@@ -47,7 +47,8 @@ describe("main.tsx", () => {
   });
 
   it("renders the application without crashing and calls reportWebVitals", async () => {
-    // const { container } = render(<div id="root" />);
+    // const { container } =
+    render(<div id="root" />);
 
     await act(async () => {
       await import("./main");
