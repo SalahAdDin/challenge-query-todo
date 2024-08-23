@@ -10,12 +10,12 @@ const TodoCard = ({ description, status, dueDate, onCheck }: TodoCardProps) => {
   const [border, darkBorder, backgroundColor, darkBackgroundColor, hoverColor] =    useMemo(
       () => ({
           completed: [
-            "border-green-200",
-            "border-green-700",
-            "bg-green-100",
-            "bg-green-800",
-            "hover:bg-green-200",
-            "text-green-700",
+            "border-lime-200",
+            "border-lime-700",
+            "bg-lime-100",
+            "bg-lime-800",
+            "hover:bg-lime-200",
+            "text-lime-700",
           ],
           overdue: [
             "border-red-200",
@@ -26,14 +26,14 @@ const TodoCard = ({ description, status, dueDate, onCheck }: TodoCardProps) => {
             "text-red-700",
           ],
           going: [
-            "border-gray-200",
-            "border-gray-700",
-            "bg-gray-100",
-            "bg-gray-800",
-            "hover:bg-gray-200",
-            "text-gray-700",
+            "border-silver-200",
+            "border-silver-700",
+            "bg-silver-100",
+            "bg-silver-800",
+            "hover:bg-silver-200",
+            "text-silver-700",
           ],
-        })[status],
+        })[status] || [],
       [status]
     );
 
@@ -51,7 +51,7 @@ const TodoCard = ({ description, status, dueDate, onCheck }: TodoCardProps) => {
         {description}
       </label>
       {dueDate && (
-        <span className="border border-black px-2 py-1 text-lg text-gray-700">
+        <span className="border border-black px-2 py-1 text-lg text-black">
           {dueDate.toLocaleDateString()}
         </span>
       )}
