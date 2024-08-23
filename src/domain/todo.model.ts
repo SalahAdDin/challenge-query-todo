@@ -1,4 +1,6 @@
-type TodoStatus = "completed" | "going" | "overdue";
+export const TODO_STATUS = ["completed", "going", "overdue"];
+
+type TodoStatus = (typeof TODO_STATUS)[number];
 
 type Todo = {
   id: number;
