@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { render } from "@testing-library/react";
+import { act, render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 const customRender = (ui: React.ReactElement, options = {}) => render(ui, {
@@ -42,4 +42,4 @@ const renderWithRouter = (ui: React.ReactElement, { route = "/" } = {}) => {
 export * from "@testing-library/dom";
 export { default as userEvent } from "@testing-library/user-event";
 
-export { customRender as render, renderWithClient, renderWithRouter };
+export { act, customRender as render, renderWithClient, renderWithRouter };
