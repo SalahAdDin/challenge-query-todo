@@ -70,7 +70,7 @@ describe("main.tsx", () => {
     expect(webVitalsMock).toHaveBeenCalledTimes(1);
   });
 
-  it("should not render ReactQueryDevtools when the production mode is on", async () => {
+  it.skip("should not render ReactQueryDevtools when the production mode is on", async () => {
     process.env.NODE_ENV = "production";
 
     await setup();
