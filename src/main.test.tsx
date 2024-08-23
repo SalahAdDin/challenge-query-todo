@@ -46,6 +46,7 @@ describe("main.tsx", () => {
   };
 
   beforeEach(() => {
+    vi.resetModules();
     originalEnv = { ...process.env };
 
     vi.clearAllMocks();
@@ -70,7 +71,7 @@ describe("main.tsx", () => {
     expect(webVitalsMock).toHaveBeenCalledTimes(1);
   });
 
-  it.skip("should not render ReactQueryDevtools when the production mode is on", async () => {
+  it("should not render ReactQueryDevtools when the production mode is on", async () => {
     process.env.NODE_ENV = "production";
 
     await setup();
